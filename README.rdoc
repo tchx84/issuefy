@@ -21,5 +21,6 @@ Issuefy is a redmine plugin for creating issues from a spreadsheet file.
 5. due date
 6. estimated time
 
-= Important detail
-* subjects are considered unique (system-wide), using the same spreadsheet twice should be idempotent.
+= Details
+* English and Spanish localization.
+* Subjects are considered unique (system-wide), using the same spreadsheet twice should be idempotent.
