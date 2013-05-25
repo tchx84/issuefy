@@ -1,0 +1,30 @@
+# Copyright (c) 2013 Martin Abente Lahaye. - martin.abente.lahaye@gmail.com
+#
+# This program is free software; you can redistribute it and/or
+# modify it under the terms of the GNU General Public License
+# as published by the Free Software Foundation; either version 2
+# of the License, or (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program; if not, write to the Free Software
+# Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA
+# 02110-1301, USA
+#
+
+es:
+  issuefy: "Peticiona"
+  issuefy_title: "Peticionar Hoja de Cálculo"
+  issuefy_desc: "Crear peticiones a partir de una hoja de cálculo"
+  issuefy_action: "Peticiona"
+  issuefy_error_not_found: "Archivo no encontrado"
+  issuefy_error_wrong_format: "El formato es incorrecto"
+  issuefy_error_something: "Algo salió mal: %{message}"
+  issuefy_error_user: "No se encuentra el usuario \"%{name}\""
+  issuefy_error_tracker: "No se encuentra el tipo \"%{name}\""
+  issuefy_error_value: "El valor \"%{value}\" no es válido"
+  issuefy_notice: "%{count} peticiones han sido creadas"

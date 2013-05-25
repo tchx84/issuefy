@@ -1,0 +1,8 @@
+<h2><%= l(:issuefy_title) %></h2>
+
+<p class="subtitle"> <%= l(:issuefy_desc) %> </p>
+
+<%= form_for :file_upload, :html => {:multipart => true} do |f| %>
+  <%= f.file_field :my_file %>
+  <%= f.submit l(:issuefy_action) %>
+<% end %>
