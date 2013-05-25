@@ -2,7 +2,7 @@
 Issuefy is a redmine plugin for creating issues from a spreadsheet file.
 
 = Dependencies
-* redmine 2.3.x
+* redmine 2.x
 * spreadsheet 0.8.5 gem
 
 = Usage instructions
