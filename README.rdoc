@@ -1,18 +1,22 @@
 = Issuefy
-Issuefy is a redmine plugin for creating issues from a spreadsheet file.
+issuefy is a redmine plugin for creating issues from a spreadsheet file.
 
-= Dependencies
+== Dependencies
 * redmine 2.x
 * spreadsheet 0.8.5 gem
 
-= Usage instructions
+== Installation
 1. cd /path/to/redmine/plugins/
 2. git clone https://github.com/tchx84/issuefy.git
 3. vim /path/to/redmine/Gemfile
 4. gem "spreadsheet", "0.8.5" # add this line
-5. restart web server and assign "issuefy" permission to a redmine rol
+5. restart your webserver
 
-= Spreadsheet format
+== Usage
+1. assign the "issuefy" permission to the roles you seem fit.
+2. user with the corresponding roles will see the "issuefy" tab in projects view.
+
+== Spreadsheet format
 0. tracker name (mandatory)
 1. assignee login name
 2. subject (mandatory)
@@ -21,6 +25,11 @@ Issuefy is a redmine plugin for creating issues from a spreadsheet file.
 5. due date
 6. estimated time
 
-= Details
-* English and Spanish localization.
-* Subjects are considered unique (system-wide), using the same spreadsheet twice should be idempotent.
+== Details
+* english and spanish locales.
+* subjects are considered unique (system-wide), using the same spreadsheet twice should be idempotent.
+* check the example/book.xls for more details about the format.
+
+== Collaborting
+* take a look at the TODO file.
+* send a message to tchx84 or just drop a pull request.
