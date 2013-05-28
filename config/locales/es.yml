@@ -26,5 +26,6 @@ es:
   issuefy_error_something: "Algo salió mal: %{message}"
   issuefy_error_user: "No se encuentra el usuario \"%{name}\""
   issuefy_error_tracker: "No se encuentra el tipo \"%{name}\""
+  issuefy_error_parent: "No se encuentra la petición padre \"%{name}\""
   issuefy_error_value: "El valor \"%{value}\" no es válido"
   issuefy_notice: "%{count} peticiones han sido creadas"

@@ -42,6 +42,8 @@ class IssuefyController < ApplicationController
         redirect_to issuefy_path, :flash => {:error =>  l(:issuefy_error_tracker, :name => e.message)}
       rescue IssuefyErrorUser => e
         redirect_to issuefy_path, :flash => {:error =>  l(:issuefy_error_user, :name => e.message)}
+      rescue IssuefyErrorParent => e
+        redirect_to issuefy_path, :flash => {:error =>  l(:issuefy_error_parent, :name => e.message)}
       rescue IssuefyErrorValue => e
         redirect_to issuefy_path, :flash => {:error =>  l(:issuefy_error_value, :value => e.message)}
       rescue Exception => e

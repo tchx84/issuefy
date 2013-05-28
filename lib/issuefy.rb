@@ -27,6 +27,9 @@ end
 class IssuefyErrorValue < Exception
 end
 
+class IssuefyErrorParent < Exception
+end
+
 module Issuefy
 
   TRACKER = 0
@@ -36,6 +39,15 @@ module Issuefy
   START = 4
   DUE = 5
   ESTIMATED = 6
+  PARENT = 7
+
+  def self.parse_parent(cell)
+    return nil if cell.nil?
+    parent = Issue.find_by_id(cell)
+    parent = Issue.find_by_subject(cell) if parent.nil?
+    raise IssuefyErrorParent, cell if parent.nil?
+    parent.id
+  end
 
   def self.parse_tracker(cell)
     return nil if cell.nil?
@@ -72,7 +84,7 @@ module Issuefy
     sheet = book.worksheet(0)
     count = 0
 
-    ActiveRecord::Base.transaction do
+    Issue.transaction do
       sheet.each do |row|
 
         # subject MUST be present
@@ -91,6 +103,7 @@ module Issuefy
         issue.start_date = parse_date(row[START])
         issue.due_date = parse_date(row[DUE])
         issue.estimated_hours = parse_number(row[ESTIMATED])
+        issue.parent_issue_id = parse_parent(row[PARENT])
 
         issue.save!
 
