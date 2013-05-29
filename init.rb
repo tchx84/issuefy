@@ -20,7 +20,7 @@ Redmine::Plugin.register :issuefy do
   name 'Issuefy'
   author 'Martin Abente Lahaye'
   description 'Redmine plugin, for creating issues from a spreadsheet file'
-  version '0.0.1'
+  version '0.0.5'
   url 'http://github.com/tchx84/issuefy'
   author_url 'http://github.com/tchx84'
   permission :issuefy, { :issuefy => [:index, :file_upload] }
