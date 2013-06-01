@@ -2,7 +2,7 @@
 issuefy is a redmine plugin for creating issues from a spreadsheet file.
 
 == Dependencies
-* redmine 2.x
+* redmine 2.3.x
 * spreadsheet 0.8.5 gem
 
 == Installation
@@ -31,6 +31,6 @@ issuefy is a redmine plugin for creating issues from a spreadsheet file.
 * subjects are considered unique (system-wide), using the same spreadsheet twice should be idempotent.
 * check the example/book.xls for more details about the format.
 
-== Collaborting
+== Collaborating
 * take a look at the TODO file.
 * send a message to tchx84 or just drop a pull request.
