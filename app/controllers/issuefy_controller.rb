@@ -29,39 +29,32 @@ class IssuefyController < ApplicationController
   def file_upload
 
     if params[:file_upload].nil?
-      redirect_to issuefy_path, :flash => {:error => l(:issuefy_error_not_found)}
+      flash[:error] = l(:issuefy_error_not_found)
     else
       file = params[:file_upload][:my_file].tempfile
 
       begin
         count = Issuefy::parse_file(file, @project, @user)
-        redirect_to issues_path, :notice => l(:issuefy_notice, count)
+        return redirect_to project_issues_path(@project), :notice => l(:issuefy_notice, count)
       rescue Ole::Storage::FormatError
-        redirect_to issuefy_path, :flash => {:error => l(:issuefy_error_wrong_format)}
+        flash[:error] = l(:issuefy_error_wrong_format)
       rescue IssuefyErrorTracker => e
-        redirect_to issuefy_path, :flash => {:error =>  l(:issuefy_error_tracker, :name => e.message)}
+        flash[:error] = l(:issuefy_error_tracker, :name => e.message)
       rescue IssuefyErrorUser => e
-        redirect_to issuefy_path, :flash => {:error =>  l(:issuefy_error_user, :name => e.message)}
+        flash[:error] = l(:issuefy_error_user, :name => e.message)
       rescue IssuefyErrorParent => e
-        redirect_to issuefy_path, :flash => {:error =>  l(:issuefy_error_parent, :name => e.message)}
+        flash[:error] = l(:issuefy_error_parent, :name => e.message)
       rescue IssuefyErrorValue => e
-        redirect_to issuefy_path, :flash => {:error =>  l(:issuefy_error_value, :value => e.message)}
+        flash[:error] = l(:issuefy_error_value, :value => e.message)
       rescue Exception => e
-        redirect_to issuefy_path, :flash => {:error => l(:issuefy_error_something, :message => e.message)}
+        flash[:error] = l(:issuefy_error_something, :message => e.message)
       end
     end
 
+    redirect_to :action => :index
   end
 
   private
-
-  def issuefy_path
-    "/projects/#{@project.identifier}/issuefy"
-  end
-
-  def issues_path
-    "/projects/#{@project.identifier}/issues"
-  end
 
   def find_project
     @project = Project.find(params[:id])
