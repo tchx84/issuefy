@@ -40,6 +40,7 @@ module Issuefy
   DUE = 5
   ESTIMATED = 6
   PARENT = 7
+  TARGET_VERSION = 8
 
   def self.parse_parent(cell)
     return nil if cell.nil?
@@ -94,6 +95,16 @@ module Issuefy
         issue = Issue.find_by_subject(subject)
         issue = Issue.new if issue.nil?
 
+	# find version specific to this project
+	version = Version.find_by_project_id_and_name(project.id, parse_text(row[TARGET_VERSION]))
+
+	# if no version found then create
+	if version == nil
+		version = Version.new :project => project,
+				      :name => parse_text(row[TARGET_VERSION])
+        	version.save
+	end
+	
         issue.project = project
         issue.author = user
         issue.subject = subject
@@ -104,6 +115,8 @@ module Issuefy
         issue.due_date = parse_date(row[DUE])
         issue.estimated_hours = parse_number(row[ESTIMATED])
         issue.parent_issue_id = parse_parent(row[PARENT])
+	# pass in version id
+        issue.fixed_version_id = version.id
 
         issue.save!
 
