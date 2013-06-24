@@ -25,6 +25,7 @@ issuefy is a redmine plugin for creating issues from a spreadsheet file.
 5. due date
 6. estimated time
 7. parent issue
+8. target version
 
 == Details
 * english, spanish and german locales.
