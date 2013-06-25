@@ -80,6 +80,16 @@ module Issuefy
     Float(cell) rescue raise IssuefyErrorValue, cell
   end
 
+  def self.parse_version(project, cell)
+    version = Version.find_by_project_id_and_name(project.id, parse_text(cell))
+    if version == nil
+      version = Version.new :project => project,
+  		            :name => parse_text(cell)
+      version.save
+    end
+    version.id
+  end
+
   def self.parse_file(file, project, user)
     book = Spreadsheet.open(file.path)
     sheet = book.worksheet(0)
@@ -95,16 +105,6 @@ module Issuefy
         issue = Issue.find_by_subject(subject)
         issue = Issue.new if issue.nil?
 
-	# find version specific to this project
-	version = Version.find_by_project_id_and_name(project.id, parse_text(row[TARGET_VERSION]))
-
-	# if no version found then create
-	if version == nil
-		version = Version.new :project => project,
-				      :name => parse_text(row[TARGET_VERSION])
-        	version.save
-	end
-	
         issue.project = project
         issue.author = user
         issue.subject = subject
@@ -115,8 +115,7 @@ module Issuefy
         issue.due_date = parse_date(row[DUE])
         issue.estimated_hours = parse_number(row[ESTIMATED])
         issue.parent_issue_id = parse_parent(row[PARENT])
-	# pass in version id
-        issue.fixed_version_id = version.id
+        issue.fixed_version_id = parse_version(project, row[TARGET_VERSION])
 
         issue.save!
 
