@@ -81,12 +81,13 @@ module Issuefy
   end
 
   def self.parse_version(project, cell)
-    version = Version.find_by_project_id_and_name(project.id, parse_text(cell))
-    if version == nil
-      version = Version.new :project => project,
-  		            :name => parse_text(cell)
-      version.save
-    end
+    return nil if cell.nil?
+    version_text = parse_text(cell)
+    version = Version.find_by_project_id_and_name(project.id, version_text)
+    version = Version.new if version.nil?
+    version.project = project
+    version.name = version_text
+    version.save!
     version.id
   end
 
