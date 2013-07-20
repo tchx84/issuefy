@@ -84,11 +84,13 @@ module Issuefy
     return nil if cell.nil?
     version_text = parse_text(cell)
     version = Version.find_by_project_id_and_name(project.id, version_text)
-    version = Version.new if version.nil?
-    version.project = project
-    version.name = version_text
-    version.save!
-    version.id
+    if version.nil?
+      version = Version.new
+      version.project = project
+      version.name = version_text
+      version.save!
+      version.id
+    end
   end
 
   def self.parse_file(file, project, user)
