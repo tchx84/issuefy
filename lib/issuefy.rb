@@ -86,11 +86,11 @@ module Issuefy
     version = Version.find_by_project_id_and_name(project.id, version_text)
     if version.nil?
       version = Version.new
-      version.project = project
-      version.name = version_text
-      version.save!
-      version.id
     end
+    version.project = project
+    version.name = version_text
+    version.save!
+    version.id
   end
 
   def self.parse_file(file, project, user)
