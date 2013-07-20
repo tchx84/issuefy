@@ -40,6 +40,7 @@ module Issuefy
   DUE = 5
   ESTIMATED = 6
   PARENT = 7
+  TARGET_VERSION = 8
 
   def self.parse_parent(cell)
     return nil if cell.nil?
@@ -79,6 +80,19 @@ module Issuefy
     Float(cell) rescue raise IssuefyErrorValue, cell
   end
 
+  def self.parse_version(project, cell)
+    return nil if cell.nil?
+    version_text = parse_text(cell)
+    version = Version.find_by_project_id_and_name(project.id, version_text)
+    if version.nil?
+      version = Version.new
+    end
+    version.project = project
+    version.name = version_text
+    version.save!
+    version.id
+  end
+
   def self.parse_file(file, project, user)
     book = Spreadsheet.open(file.path)
     sheet = book.worksheet(0)
@@ -104,6 +118,7 @@ module Issuefy
         issue.due_date = parse_date(row[DUE])
         issue.estimated_hours = parse_number(row[ESTIMATED])
         issue.parent_issue_id = parse_parent(row[PARENT])
+        issue.fixed_version_id = parse_version(project, row[TARGET_VERSION])
 
         issue.save!
 
