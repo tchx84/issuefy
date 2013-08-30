@@ -1,0 +1,31 @@
+# Copyright (c) 2013 Martin Abente Lahaye. - martin.abente.lahaye@gmail.com
+#
+# This program is free software; you can redistribute it and/or
+# modify it under the terms of the GNU General Public License
+# as published by the Free Software Foundation; either version 2
+# of the License, or (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program; if not, write to the Free Software
+# Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA
+# 02110-1301, USA
+#
+
+fr:
+  issuefy: "Issuefy"
+  issuefy_title: "Issuefy - Import de fichier Excel"
+  issuefy_desc: "Création de demandes depuis un fichier excel"
+  issuefy_action: "Issuefy"
+  issuefy_error_not_found: "Aucun fichier trouvé"
+  issuefy_error_wrong_format: "Mauvais format de fichier"
+  issuefy_error_something: "Une erreur est survenue: %{message}"
+  issuefy_error_user: "L'utilisateur \"%{name}\" n'a pas été trouvé"
+  issuefy_error_tracker: "le tracker \"%{name}\" n'a pas été trouvé"
+  issuefy_error_parent: "La demande liée \"%{name}\" n'a pas été trouvée"
+  issuefy_error_value: "Valeur \"%{value}\" non valide"
+  issuefy_notice: "%{count} demande(s) créée(s) avec succès"
