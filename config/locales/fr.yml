@@ -29,3 +29,4 @@ fr:
   issuefy_error_parent: "La demande liée \"%{name}\" n'a pas été trouvée"
   issuefy_error_value: "Valeur \"%{value}\" non valide"
   issuefy_notice: "%{count} demande(s) créée(s) avec succès"
+  permission_issuefy: "Issuefy"

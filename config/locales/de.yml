@@ -29,3 +29,4 @@ de:
   issuefy_error_parent: "Kann folgende übergeordnete Aufgabe nicht finden: \"%{name}\""
   issuefy_error_value: "Wert \"%{value}\" ist nicht korrekt."
   issuefy_notice: "%{count} Tickets wurden erstellt."
+  permission_issuefy: "Issuefy"
