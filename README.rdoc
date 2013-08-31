@@ -27,7 +27,7 @@ issuefy is a redmine plugin for creating issues from a spreadsheet file.
 7. parent issue
 
 == Details
-* english, spanish and german locales.
+* english, spanish, german and french locales.
 * subjects are considered unique (system-wide), using the same spreadsheet twice should be idempotent.
 * check the example/book.xls for more details about the format.
 
