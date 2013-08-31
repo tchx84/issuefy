@@ -17,7 +17,6 @@
 #
 
 es:
-  issuefy: "Issuefy"
   issuefy_title: "Peticionar Hoja de Cálculo"
   issuefy_desc: "Crear peticiones a partir de una hoja de cálculo"
   issuefy_action: "Peticiona"
@@ -29,3 +28,5 @@ es:
   issuefy_error_parent: "No se encuentra la petición padre \"%{name}\""
   issuefy_error_value: "El valor \"%{value}\" no es válido"
   issuefy_notice: "%{count} peticiones han sido creadas"
+
+  permission_issuefy: "Issuefy"

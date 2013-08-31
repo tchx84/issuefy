@@ -17,7 +17,6 @@
 #
 
 en:
-  issuefy: "Issuefy"
   issuefy_title: "Issuefy Spreadsheet"
   issuefy_desc: "Create issues from a spreadsheet file"
   issuefy_action: "Issuefy"
@@ -29,3 +28,5 @@ en:
   issuefy_error_parent: "Cannot find parent issue \"%{name}\""
   issuefy_error_value: "Value \"%{value}\" is not valid"
   issuefy_notice: "%{count} issues have been created"
+
+  permission_issuefy: "Issuefy"
