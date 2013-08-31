@@ -17,6 +17,7 @@
 #
 
 es:
+  issuefy: "Issuefy"
   issuefy_title: "Peticionar Hoja de Cálculo"
   issuefy_desc: "Crear peticiones a partir de una hoja de cálculo"
   issuefy_action: "Peticiona"

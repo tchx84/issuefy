@@ -17,6 +17,7 @@
 #
 
 en:
+  issuefy: "Issuefy"
   issuefy_title: "Issuefy Spreadsheet"
   issuefy_desc: "Create issues from a spreadsheet file"
   issuefy_action: "Issuefy"
