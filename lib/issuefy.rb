@@ -56,11 +56,12 @@ module Issuefy
     tracker
   end
 
-  def self.parse_user(cell)
+  def self.parse_user_or_group(cell)
     return nil if cell.nil?
     user = User.find_by_login(cell.strip)
-    raise IssuefyErrorUser, cell if user.nil?
-    user
+    group = Group.find_by_lastname(cell.strip) if user.nil? 
+    raise IssuefyErrorUser, cell if user.nil? && group.nil?
+    user || group
   end
 
   def self.parse_date(cell)
@@ -98,7 +99,7 @@ module Issuefy
         issue.author = user
         issue.subject = subject
         issue.tracker = parse_tracker(row[TRACKER])
-        issue.assigned_to = parse_user(row[ASSIGNED])
+        issue.assigned_to = parse_user_or_group(row[ASSIGNED])
         issue.description = parse_text(row[DESC])
         issue.start_date = parse_date(row[START])
         issue.due_date = parse_date(row[DUE])
