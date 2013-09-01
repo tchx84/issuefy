@@ -43,8 +43,7 @@ module Issuefy
 
   def self.parse_parent(cell)
     return nil if cell.nil?
-    parent = Issue.find_by_id(cell)
-    parent = Issue.find_by_subject(cell) if parent.nil?
+    parent = Issue.find_by_id(cell) || Issue.find_by_subject(cell)
     raise IssuefyErrorParent, cell if parent.nil?
     parent.id
   end
