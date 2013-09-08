@@ -99,9 +99,7 @@ module Issuefy
         issue.author = user
         issue.subject = subject
         issue.tracker = parse_tracker(row[TRACKER])
-        user_or_group = parse_user_or_group(row[ASSIGNED])
-        issue.assigned_to = user_or_group if user_or_group.is_a? User
-        issue.watcher_users += user_or_group.users if user_or_group.is_a? Group
+        issue.assigned_to = parse_user_or_group(row[ASSIGNED])
         issue.description = parse_text(row[DESC])
         issue.start_date = parse_date(row[START])
         issue.due_date = parse_date(row[DUE])
