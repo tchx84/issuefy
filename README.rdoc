@@ -18,7 +18,7 @@ issuefy is a redmine plugin for creating issues from a spreadsheet file.
 
 == Spreadsheet format
 0. tracker name (mandatory)
-1. assignee login name
+1. assignee login name or group name, if login is not found
 2. subject (mandatory)
 3. description
 4. start date
