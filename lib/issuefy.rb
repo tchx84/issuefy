@@ -92,8 +92,7 @@ module Issuefy
         subject = parse_text(row[SUBJECT])
         next if subject.nil?
 
-        issue = Issue.find_by_subject(subject)
-        issue = Issue.new if issue.nil?
+        issue = Issue.find_by_subject(subject) || Issue.new
 
         issue.project = project
         issue.author = user
