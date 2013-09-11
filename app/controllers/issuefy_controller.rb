@@ -34,7 +34,7 @@ class IssuefyController < ApplicationController
       file = params[:file_upload][:my_file].tempfile
 
       begin
-        count = Issuefy::parse_file(file, @project, @user)
+        count = Issuefy::parse_file(file, @project, User.current)
         return redirect_to project_issues_path(@project), :notice => l(:issuefy_notice, count)
       rescue Ole::Storage::FormatError
         flash[:error] = l(:issuefy_error_wrong_format)
@@ -52,12 +52,5 @@ class IssuefyController < ApplicationController
     end
 
     redirect_to :action => :index
-  end
-
-  private
-
-  def find_project
-    @project = Project.find(params[:id])
-    @user = User.current
   end
 end
