@@ -42,7 +42,7 @@ module Issuefy
   PARENT = 7
 
   def self.parse_parent(cell)
-    return nil if cell.nil?
+    return nil unless cell
     parent = Issue.find_by_id(cell)
     parent = Issue.find_by_subject(cell) if parent.nil?
     raise IssuefyErrorParent, cell if parent.nil?
@@ -50,14 +50,14 @@ module Issuefy
   end
 
   def self.parse_tracker(cell)
-    return nil if cell.nil?
+    return nil unless cell
     tracker = Tracker.find_by_name(cell.strip)
     raise IssuefyErrorTracker, cell if tracker.nil?
     tracker
   end
 
   def self.parse_user_or_group(cell)
-    return nil if cell.nil?
+    return nil unless cell
     user = User.find_by_login(cell.strip)
     group = Group.find_by_lastname(cell.strip) if user.nil? 
     raise IssuefyErrorUser, cell if user.nil? && group.nil?
@@ -65,18 +65,18 @@ module Issuefy
   end
 
   def self.parse_date(cell)
-    return nil if cell.nil?
+    return nil unless cell
     return DateTime.strptime(cell.strip, "%d/%m/%Y") rescue raise IssuefyErrorValue, cell if cell.class == String
     cell
   end
 
   def self.parse_text(cell)
-    return nil if cell.nil?
+    return nil unless cell
     cell.strip
   end
 
   def self.parse_number(cell)
-    return nil if cell.nil?
+    return nil unless cell
     Float(cell) rescue raise IssuefyErrorValue, cell
   end
 
@@ -90,7 +90,7 @@ module Issuefy
 
         # subject MUST be present
         subject = parse_text(row[SUBJECT])
-        next if subject.nil?
+        next unless subject
 
         issue = Issue.find_by_subject(subject)
         issue = Issue.new if issue.nil?
