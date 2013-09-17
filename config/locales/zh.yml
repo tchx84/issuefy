@@ -1,0 +1,35 @@
+# Copyright (c) 2013 Martin Abente Lahaye. - martin.abente.lahaye@gmail.com
+#
+# This program is free software; you can redistribute it and/or
+# modify it under the terms of the GNU General Public License
+# as published by the Free Software Foundation; either version 2
+# of the License, or (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program; if not, write to the Free Software
+# Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA
+# 02110-1301, USA
+# 
+# Simplified Chinese strings go here for Rails i18n
+# Author: Steven.W
+# Based on file: en.yml
+
+zh:
+  issuefy: "问题导入"
+  issuefy_title: "问题导入（从表格中）"
+  issuefy_desc: "从表格文件中导入问题"
+  issuefy_action: "问题导入"
+  issuefy_error_not_found: "未找到文件！"
+  issuefy_error_wrong_format: "文件格式错误！"
+  issuefy_error_something: "系统错误：%{message}"
+  issuefy_error_user: "找不到用户 \"%{name}\""
+  issuefy_error_tracker: "找不到跟踪类型 \"%{name}\""
+  issuefy_error_parent: "找不到父问题 \"%{name}\""
+  issuefy_error_value: "\"%{value}\" 非法取值"
+  issuefy_notice: "%{count} 个问题已创建。"
+  permission_issuefy: "问题导入"
