@@ -1,3 +1,4 @@
 [ ] support dynamic spreadsheet formats
-[ ] load spreadsheet gem properly
+[X] load spreadsheet gem properly
 [X] redirect pages properly
+[ ] write tests
