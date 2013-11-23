@@ -8,9 +8,8 @@ issuefy is a redmine plugin for creating issues from a spreadsheet file.
 == Installation
 1. cd /path/to/redmine/plugins/
 2. git clone https://github.com/tchx84/issuefy.git
-3. vim /path/to/redmine/Gemfile
-4. gem "spreadsheet", "0.8.5" # add this line
-5. restart your webserver
+3. bundle install --without development test
+4. restart your webserver
 
 == Usage
 1. assign the "issuefy" permission to the roles you seem fit.
