@@ -1,35 +1,38 @@
-= Issuefy
+== Issuefy
 issuefy is a redmine plugin for creating issues from a spreadsheet file.
 
-== Dependencies
-* redmine 2.3.x
-* spreadsheet 0.8.5 gem
+=== Installation
+0. $cd /path/to/redmine/plugins/
+1. $git clone https://github.com/tchx84/issuefy.git
+2. $bundle install --without development test
+3. restart your webserver.
 
-== Installation
-1. cd /path/to/redmine/plugins/
-2. git clone https://github.com/tchx84/issuefy.git
-3. bundle install --without development test
-4. restart your webserver
+=== Usage
+0. assign the "issuefy" permission to the roles you seem fit.
+1. users with the corresponding roles will see the "issuefy" tab in projects view.
 
-== Usage
-1. assign the "issuefy" permission to the roles you seem fit.
-2. user with the corresponding roles will see the "issuefy" tab in projects view.
-
-== Spreadsheet format
+=== Spreadsheet format
 0. tracker name (mandatory)
-1. assignee login name or group name, if login is not found
-2. subject (mandatory)
+1. assignee login name or group name
+2. subject (mandatory, please read notes below)
 3. description
-4. start date
+4. start date (dd/mm/yyyy)
 5. due date
 6. estimated time
-7. parent issue
+7. parent issue id or subject
 
-== Details
+check the example/book.xls for more details about the format.
+
+=== Features
+* create or update issues in your project, from a spreadsheet.
 * english, spanish, german, french and simplified chinese locales.
-* subjects are considered unique (system-wide), using the same spreadsheet twice should be idempotent.
-* check the example/book.xls for more details about the format.
+* support for redmine 2.3.x and 2.4.x.
 
-== Collaborating
+=== Important notes
+* issuefy assumes that issues subjects are unique, within the same project.
+* subject uniqueness is not enforced by redmine, so use this plugin carefully.
+* you have been warned.
+
+=== Collaborating
 * take a look at the TODO file.
-* send a message to tchx84 or just drop a pull request.
+* send a message to tchx84 or just drop a pull request, through github.
