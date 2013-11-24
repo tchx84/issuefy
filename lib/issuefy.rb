@@ -84,7 +84,7 @@ module Issuefy
     sheet = book.worksheet(0)
     count = 0
 
-    Issue.transaction do
+    Issue.where(:project_id => project).transaction do
       sheet.each do |row|
 
         # subject MUST be present
