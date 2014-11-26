@@ -86,10 +86,13 @@ module Issuefy
 
     Issue.where(:project_id => project).transaction do
       sheet.each do |row|
-
+        count += 1
+        
         # subject MUST be present
         subject = parse_text(row[SUBJECT])
         next if subject.nil?
+        
+        next if count == 1 # Skip line with headers
 
         issue = Issue.find_by_subject(subject) || Issue.new
 
@@ -105,8 +108,6 @@ module Issuefy
         issue.parent_issue_id = parse_parent(row[PARENT])
 
         issue.save!
-
-        count += 1
       end
     end
 
