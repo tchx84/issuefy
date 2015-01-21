@@ -111,7 +111,7 @@ module Issuefy
       end
     end
 
-    count
+    count - 1
   end
 
 end
