@@ -1,0 +1,32 @@
+# Copyright (c) 2015 Jan Breuer - jan.breuer@jaybee.cz
+#
+# This program is free software; you can redistribute it and/or
+# modify it under the terms of the GNU General Public License
+# as published by the Free Software Foundation; either version 2
+# of the License, or (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program; if not, write to the Free Software
+# Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA
+# 02110-1301, USA
+#
+
+cs:
+  issuefy: "Issuefy"
+  issuefy_title: "Issuefy: úkoly z tabulky"
+  issuefy_desc: "Vytvoří úkoly ze souboru z tabulkového procesoru"
+  issuefy_action: "Issuefy"
+  issuefy_error_not_found: "Nebyl vybrán žádný soubor"
+  issuefy_error_wrong_format: "Špatný formát souboru"
+  issuefy_error_something: "Něco se stalo špatně: %{message}"
+  issuefy_error_user: "Uživatel \"%{name}\" neexistuje"
+  issuefy_error_tracker: "Fronta \"%{name}\" neexistuje"
+  issuefy_error_parent: "Není možné nalézt rodičovský úkol \"%{name}\""
+  issuefy_error_value: "Hodnota \"%{value}\" není správná"
+  issuefy_notice: "Nově vytvořených úkolů: %{count}"
+  permission_issuefy: "Issuefy"
